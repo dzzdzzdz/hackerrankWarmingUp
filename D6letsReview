@@ -1,0 +1,27 @@
+function processData(input) {
+    input = input.split('\n').slice(1);
+    let result = '';
+    for (let i = 0; i < input.length; i++) {
+        for (let j = 0; j < input[i].length; j+=2) {
+            result += input[i][j];
+        }
+        result += ' ';
+        for (let j = 1; j < input[i].length; j+=2) {
+            result += input[i][j];
+        }
+        result += '\n';
+    }
+
+    console.log(result);
+} 
+
+process.stdin.resume();
+process.stdin.setEncoding("ascii");
+_input = "";
+process.stdin.on("data", function (input) {
+    _input += input;
+});
+
+process.stdin.on("end", function () {
+   processData(_input);
+});
