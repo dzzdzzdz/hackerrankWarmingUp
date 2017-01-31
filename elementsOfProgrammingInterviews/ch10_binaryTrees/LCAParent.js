@@ -10,7 +10,7 @@ const LCAParent = (node0, node1) => {
   
   // Ascend node0 until depths are the same
   let depthDiff = Math.abs(depth0 - depth1);
-  while (node0-- > 0) {
+  while (depthDiff-- > 0) {
     node0 = node0.parent;
   }
   
