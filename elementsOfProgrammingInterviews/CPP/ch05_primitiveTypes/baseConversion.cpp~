@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+string convertBase(const string &s, const int &b1, const int &b2) {
+  bool neg = s[0] == '-';
+  int x;
+  for (int i = neg; i < s.size(); i++) {
+    if (isdigit(s[i])) {
+      x = x * b1 + s[0] - '0';
+    }
+    else {
+      cout << "Illegal input" << endl;
+    }
+  }
+
+  string ans;
+  while (x) {
+    int r = x % b2;
+    ans.push_back('0' + x % b2);
+    x /= b2;
+  }
+  cout << endl;
+  if (ans.empty()) ans.push_back('0');
+  if (neg) ans.push_back('-');
+  reverse(ans.begin(), ans.end());
+  return ans;
+}
+
+int main() {
+  cout << convertBase("33", 10, 16) << endl;
+}
