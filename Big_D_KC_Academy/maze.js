@@ -1,1 +1,0 @@
-imagine there's a maze and there can be walls.  a wall si defined as two points in the grid eg (0,1) (1, 1). you start at (0,0), find the fastest route given the location of a destination, assuming you have a hammer that can break up to n walls
