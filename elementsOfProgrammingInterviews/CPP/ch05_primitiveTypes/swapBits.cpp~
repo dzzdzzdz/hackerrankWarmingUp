@@ -1,0 +1,13 @@
+#include <iostream>
+using namespace std;
+
+long swap_bits(long x, const int &i, const int &j) {
+  if (((x >> i) & 1) != ((x >> j) & 1)) {
+    x ^= (1L << i) | (1L << j);
+  }
+  return x;
+}
+
+int main() {
+  cout << swap_bits(14, 0, 4);
+};
