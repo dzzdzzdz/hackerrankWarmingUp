@@ -9,10 +9,11 @@ vector<int> generatePrimes(int n) {
   isPrime[1] = false;
   for (int i = 2; i <= n; i++) {
     if (isPrime[i]) {
-      primes.push_back(i);
+      primes.insert(primes.begin(), i);
       for (int j = i; j <= n; j += i) {
 	isPrime[j] = false;
       }
+      cout << primes[1] << endl;
     }
   }
 
@@ -24,5 +25,5 @@ int main() {
   for (int i : v) {
     cout << i;
   }
-  cout << endl;
+
 }
