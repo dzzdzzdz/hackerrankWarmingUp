@@ -1,23 +1,34 @@
 'use strict';
 
 export const partition = (node, x) => {
-  let smallerHead = null, smallerTail = null, largerHead = null, largerTail = null;
-
+  let smallerHead = null, smallerTail = null, largerTail = null, largerHead = null;
   while (node) {
     let next = node.next;
     node.next = null;
 
     if (node.val < x) {
-      if (!smallerHead) smallerHead = smallerTail = node;
-      else smallerTail = smallerTail.next = node;
+      if (!smallerHead) {
+        smallerHead = node;
+        smallerTail = smallerHead;
+      } else {
+        smallerTail.next = node;
+        smallerTail = node;
+      }
     }
     else {
-      if (!largerTail) largerTail = largerHead = node;
-      else largerTail = largerTail.next = node;
+      if (!largerHead) {
+        largerHead = node;
+        largerTail = largerHead;
+      } else {
+        largerTail.next = node;
+        largerTail = node;
+      }
     }
     node = next;
   }
+
   if (smallerTail) smallerTail.next = largerHead;
 
   return smallerHead || largerHead;
+
 };
